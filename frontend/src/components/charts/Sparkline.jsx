@@ -1,0 +1,12 @@
+import { LineChart, Line, ResponsiveContainer } from "recharts";
+
+export default function Sparkline({ data, color = "#3B82F6" }) {
+  const points = data.map((v, i) => ({ i, v }));
+  return (
+    <ResponsiveContainer width="100%" height={36}>
+      <LineChart data={points}>
+        <Line type="monotone" dataKey="v" stroke={color} strokeWidth={2} dot={false} isAnimationActive={true} />
+      </LineChart>
+    </ResponsiveContainer>
+  );
+}
